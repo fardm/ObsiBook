@@ -25,23 +25,13 @@ document.getElementById('templateForm').addEventListener('submit', function(even
   });
 });
 
-// Restore defaults and save them immediately
+// Restore defaults
 document.getElementById('restoreDefaults').addEventListener('click', function() {
-  // Set the default values in the form
   document.getElementById('vaultName').value = DEFAULT_VAULT_NAME;
   document.getElementById('filePath').value = DEFAULT_FILE_PATH;
   document.getElementById('fileNameTemplate').value = DEFAULT_FILE_NAME_TEMPLATE;
   document.getElementById('template').value = DEFAULT_TEMPLATE;
-
-  // Save the default values to storage
-  chrome.storage.sync.set({
-    vaultName: DEFAULT_VAULT_NAME,
-    filePath: DEFAULT_FILE_PATH,
-    fileNameTemplate: DEFAULT_FILE_NAME_TEMPLATE,
-    template: DEFAULT_TEMPLATE
-  }, function() {
-    alert('Default settings restored and saved successfully!');
-  });
+  //alert('Default settings restored!');
 });
 
 // Load saved settings
