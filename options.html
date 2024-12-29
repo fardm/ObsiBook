@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ObsiBook Options</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <h1><img src="icon.png" alt="icon" class="icon">ObsiBook Settings</h1>
+  <form id="templateForm">
+    <label for="vaultName">Vault Name:</label>
+    <input type="text" id="vaultName" name="vaultName" placeholder="Enter your vault name"><br><br>
+
+    <label for="filePath">File Path:</label>
+    <input type="text" id="filePath" name="filePath" placeholder="Enter the file path. for example: Resources/Books"><br><br>
+
+    <label for="fileNameTemplate">File Name:</label>
+    <input type="text" id="fileNameTemplate" name="fileNameTemplate" placeholder="Enter file name"><br><br>
+
+    <label for="template">Content:</label><br>
+    <textarea id="template" name="template">
+---
+title: {{title}}
+author: {{author}}
+pages: {{pages}}
+cover: {{cover}}
+tags:
+  - Book
+---</textarea><br>
+    <button type="submit">Save</button>
+    <button type="button" id="restoreDefaults">Restore Defaults</button>
+  </form>
+  <br/><br/>
+  <h2>Parameters Guide</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter Name</th>
+        <th>Description</th>
+        <th>Example Output</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{title}}</td>
+        <td>Book Title</td>
+        <td>Think Again</td>
+      </tr>
+      <tr>
+        <td>{{author}}</td>
+        <td>Book Author</td>
+        <td>Adam Grant</td>
+      </tr>
+      <tr>
+        <td>{{pages}}</td>
+        <td>Number of Pages</td>
+        <td>288</td>
+      </tr>
+      <tr>
+        <td>{{cover}}</td>
+        <td>Book Cover Image</td>
+        <td>https://img.taaghche.com/frontCover/95160.jpg</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <br/><br/>
+  <div class="link">
+    <a href="https://github.com/fardm">GitHub</a>
+    |
+    <a href="https://ifard.ir">Site</a></p>
+  </div>
+
+
+  <script src="options.js"></script>
+</body>
+</html>
