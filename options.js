@@ -45,3 +45,28 @@ chrome.storage.sync.get(['vaultName', 'filePath', 'fileNameTemplate', 'template'
   if (data.template) document.getElementById('template').value = data.template;
   else document.getElementById('template').value = DEFAULT_TEMPLATE;
 });
+
+// Add copy to clipboard functionality
+document.querySelectorAll('td[data-copy]').forEach(td => {
+  td.addEventListener('click', () => {
+    const textToCopy = td.getAttribute('data-copy');
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      // Change the icon from copy to check
+      const icon = td.querySelector('i');
+      if (icon) {
+        icon.classList.remove('fa-copy'); // Remove the copy icon
+        icon.classList.add('fa-check');  // Add the check icon
+      }
+
+      // Revert the icon back to copy after 2 seconds
+      setTimeout(() => {
+        if (icon) {
+          icon.classList.remove('fa-check'); // Remove the check icon
+          icon.classList.add('fa-copy');    // Add the copy icon back
+        }
+      }, 2000); // 2 seconds delay
+    }).catch(err => {
+      console.error('Failed to copy text: ', err);
+    });
+  });
+});
