@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "ObsiBook",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Extract book details and create a new note in Obsidian.",
   "permissions": ["activeTab", "scripting", "storage", "downloads"],
   "background": {
