@@ -7,10 +7,10 @@
 
   
 این افزونه در حال حاضر از سایت های زیر پشتیبانی می‌کند:
-- <img src="https://www.google.com/s2/favicons?sz=64&amp;domain=https%3a%2f%2fwww.goodreads.com%2f" width="18px" height="18px" align="top"> [گودریدز](https://www.goodreads.com/)
-- <img src="https://www.google.com/s2/favicons?sz=64&amp;domain=https%3a%2f%2ftaaghche.com%2f" width="18px" height="18px" align="top"> [طاقچه](https://taaghche.com/)
-- <img src="https://www.google.com/s2/favicons?sz=64&amp;domain=https%3a%2f%2ffidibo.com%2f" width="18px" height="18px" align="top"> [فیدیبو](https://fidibo.com/)
-- <img src="https://www.google.com/s2/favicons?sz=64&amp;domain=https%3a%2f%2fwww.digikala.com%2f" width="18px" height="18px" align="top"> [دیجی کالا](https://www.digikala.com/)
+- <img src="https://www.google.com/s2/favicons?sz=64&amp;domain=https%3a%2f%2fwww.goodreads.com%2f" width="18px" height="18px" align="center"> [گودریدز](https://www.goodreads.com/)
+- <img src="https://www.google.com/s2/favicons?sz=64&amp;domain=https%3a%2f%2ftaaghche.com%2f" width="18px" height="18px" align="center"> [طاقچه](https://taaghche.com/)
+- <img src="https://www.google.com/s2/favicons?sz=64&amp;domain=https%3a%2f%2ffidibo.com%2f" width="18px" height="18px" align="center"> [فیدیبو](https://fidibo.com/)
+- <img src="https://www.google.com/s2/favicons?sz=64&amp;domain=https%3a%2f%2fwww.digikala.com%2f" width="18px" height="18px" align="center"> [دیجی کالا](https://www.digikala.com/)
 
 
 
@@ -18,7 +18,7 @@
 
 ## راهنمای استفاده
 
-<a href="https://www.aparat.com/v/zbg2jw5"><img src="https://img.icons8.com/?size=100&id=61350&format=png&color=000000" width="25px" height="25px" align="top">مشاهده ویدئو در آپارات</a>
+<a href="https://www.aparat.com/v/zbg2jw5"><img src="https://img.icons8.com/?size=100&id=61350&format=png&color=000000" width="25px" height="25px" align="center">مشاهده ویدئو در آپارات</a>
 
 
 ### گام اول: دانلود و فعال سازی
@@ -46,7 +46,7 @@
 ### گام سوم: راه اندازی
 یک صفحه کتاب را از سایت های بالا انتخاب کنید.
 
-<p>روی آیکون افزونه (<img src="icon.png" alt="icon" style="width: 25px;" align="top">) کلیک کنید تا فایل نهایی را دریافت کنید</p>
+<p>روی آیکون افزونه (<img src="icon.png" alt="icon" style="width: 25px;" align="center">) کلیک کنید تا فایل نهایی را دریافت کنید</p>
 
 <br/>
 
