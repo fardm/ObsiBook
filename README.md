@@ -17,7 +17,7 @@
 
 ## راهنمای استفاده
 
-![video](https://www.aparat.com/v/zbg2jw5)
+<iframe src="https://www.aparat.com/video/video/embed/videohash/zbg2jw5/vt/frame" allowFullScreen="true" width="100%"></iframe>
 
 ### گام اول: دانلود و فعال سازی
 
