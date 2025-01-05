@@ -1,12 +1,3 @@
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap">
-
-<style>
-    body {
-        font-family: 'Vazirmatn', sans-serif;
-    }
-</style>
-
-
 # ObsiBook
 ![image](preview.webp)
 
