@@ -8,16 +8,17 @@
   
 این افزونه در حال حاضر از سایت های زیر پشتیبانی می‌کند:
 - [گودریدز](https://www.goodreads.com/)
-- [طاقچه](https://taaghche.com/)
+- <img src="https://www.google.com/s2/favicons?sz=64&amp;domain=https%3a%2f%2ftaaghche.com%2f" width="25px" height="25px"> [طاقچه](https://taaghche.com/)
 - [فیدیبو](https://fidibo.com/)
 - [دیجی کالا](https://www.digikala.com/)
+
 
 
 <br/>
 
 ## راهنمای استفاده
 
-<a href="https://www.aparat.com/v/zbg2jw5"><img src="https://img.icons8.com/?size=100&id=61350&format=png&color=000000" width="25px" height="25px" style="vertical-align: middle;">مشاهده ویدئو در آپارات</a>
+<a href="https://www.aparat.com/v/zbg2jw5"><img src="https://img.icons8.com/?size=100&id=61350&format=png&color=000000" width="25px" height="25px" align="top">مشاهده ویدئو در آپارات</a>
 
 
 ### گام اول: دانلود و فعال سازی
