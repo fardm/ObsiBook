@@ -7,10 +7,10 @@
 
   
 این افزونه در حال حاضر از سایت های زیر پشتیبانی می‌کند:
-- [گودریدز](https://www.goodreads.com/)
-- <img src="https://www.google.com/s2/favicons?sz=64&amp;domain=https%3a%2f%2ftaaghche.com%2f" width="25px" height="25px"> [طاقچه](https://taaghche.com/)
-- [فیدیبو](https://fidibo.com/)
-- [دیجی کالا](https://www.digikala.com/)
+- <img src="https://www.google.com/s2/favicons?sz=64&amp;domain=https%3a%2f%2fwww.goodreads.com%2f" width="18px" height="18px" align="top"> [گودریدز](https://www.goodreads.com/)
+- <img src="https://www.google.com/s2/favicons?sz=64&amp;domain=https%3a%2f%2ftaaghche.com%2f" width="18px" height="18px" align="top"> [طاقچه](https://taaghche.com/)
+- <img src="https://www.google.com/s2/favicons?sz=64&amp;domain=https%3a%2f%2ffidibo.com%2f" width="18px" height="18px" align="top"> [فیدیبو](https://fidibo.com/)
+- <img src="https://www.google.com/s2/favicons?sz=64&amp;domain=https%3a%2f%2fwww.digikala.com%2f" width="18px" height="18px" align="top"> [دیجی کالا](https://www.digikala.com/)
 
 
 
@@ -46,7 +46,7 @@
 ### گام سوم: راه اندازی
 یک صفحه کتاب را از سایت های بالا انتخاب کنید.
 
-<p>روی آیکون افزونه (<img src="icon.png" alt="icon" style="width: 25px; vertical-align: middle;">) کلیک کنید تا فایل نهایی را دریافت کنید</p>
+<p>روی آیکون افزونه (<img src="icon.png" alt="icon" style="width: 25px;" align="top">) کلیک کنید تا فایل نهایی را دریافت کنید</p>
 
 <br/>
 
