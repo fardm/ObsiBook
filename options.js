@@ -1,5 +1,5 @@
 // Default values
-const DEFAULT_VAULT_NAME = 'my vault';
+const DEFAULT_VAULT_NAME = '';
 const DEFAULT_FILE_PATH = '';
 const DEFAULT_FILE_NAME_TEMPLATE = '{{title}}';
 const DEFAULT_TEMPLATE = `---
@@ -79,20 +79,18 @@ document.querySelectorAll('td[data-copy]').forEach(td => {
   td.addEventListener('click', () => {
     const textToCopy = td.getAttribute('data-copy');
     navigator.clipboard.writeText(textToCopy).then(() => {
-      // Change the icon from copy to check
       const icon = td.querySelector('i');
       if (icon) {
-        icon.classList.remove('fa-copy'); // Remove the copy icon
-        icon.classList.add('fa-check');  // Add the check icon
+        icon.classList.remove('fa-copy');
+        icon.classList.add('fa-check'); 
       }
 
-      // Revert the icon back to copy after 2 seconds
       setTimeout(() => {
         if (icon) {
-          icon.classList.remove('fa-check'); // Remove the check icon
-          icon.classList.add('fa-copy');    // Add the copy icon back
+          icon.classList.remove('fa-check');
+          icon.classList.add('fa-copy');
         }
-      }, 2000); // 2 seconds delay
+      }, 2000);
     }).catch(err => {
       console.error('Failed to copy text: ', err);
     });

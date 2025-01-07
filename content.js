@@ -1,19 +1,19 @@
 (() => {
-  // لیست سفید سایت‌های پشتیبانی شده
+  // Supported sites whitelist
   const supportedSites = [
     "taaghche.com",
     "digikala.com",
     "goodreads.com", 
-    "fidibo.com"
+    "fidibo.com",
+    "behkhaan.ir",
+    "ketabrah.ir"
   ];
 
-  // بررسی اینکه سایت فعلی در لیست سفید است یا نه
   const isSiteSupported = () => {
     const currentHostname = window.location.hostname;
     return supportedSites.some(site => currentHostname.includes(site));
   };
 
-  // اگر سایت پشتیبانی نشده باشد، افزونه هیچ کاری انجام نمی‌دهد
   if (!isSiteSupported()) {
     console.warn("This website is not supported by the extension.");
     return;
@@ -29,7 +29,7 @@
       let pages = "Unknown Pages";
 
       if (url.includes("taaghche.com")) {
-        // سلکتورهای سایت طاقچه
+        // taaghche
         title = document.querySelector("h1")?.textContent.trim().replace(/\s+/g, " ") || "Unknown Title";
         const authorElement = document.querySelector("a[href*='/author/']");
         author = authorElement ? authorElement.textContent.trim() : "Unknown Author";
@@ -40,7 +40,7 @@
           ?.querySelector("p.moreInfo_value__ctk9e");
         pages = pagesElement ? pagesElement.textContent.trim().replace(/\s?صفحه$/, "").trim() : "Unknown Pages";
       } else if (url.includes("digikala.com")) {
-        // سلکتورهای سایت دیجی‌کالا
+        // digikala
         const titleElement = document.querySelector("h1.text-h4.text-neutral-900.mb-2.pointer-events-none");
         title = titleElement ? titleElement.textContent.trim() : "Unknown Title";
         const coverElement = document.querySelector("img.w-full.rounded-large.overflow-hidden.inline-block");
@@ -60,7 +60,7 @@
         const pagesElement = pagesLabel.find(el => el.textContent.includes("تعداد صفحه"))?.nextElementSibling?.querySelector("p");
         pages = pagesElement ? pagesElement.textContent.trim() : "Unknown Pages";
       } else if (url.includes("goodreads.com")) {
-        // سلکتورهای سایت Goodreads
+        // goodreads
         const titleElement = document.querySelector('h1[data-testid="bookTitle"]');
         title = titleElement ? titleElement.textContent.trim() : "Unknown Title";
 
@@ -79,11 +79,10 @@
         const coverElement = document.querySelector('img.ResponsiveImage');
         cover = coverElement ? coverElement.getAttribute("src") : "No Cover Image";
       } else if (url.includes("fidibo.com")) {
-        // سلکتورهای سایت فیدیبو
+        // fidibo
         const titleElement = document.querySelector('h1.book-main-box-detail-title');
         title = titleElement ? titleElement.textContent.trim() : "Unknown Title";
 
-        // استخراج نویسنده
         const authorRow = Array.from(document.querySelectorAll('tr.book-vl-rows-item'))
             .find(row => {
                 const titleCell = row.querySelector('td.book-vl-rows-item-title');
@@ -92,7 +91,6 @@
         const authorElement = authorRow?.querySelector('a.book-vl-rows-item-subtitle, div.book-vl-rows-item-subtitle');
         author = authorElement ? authorElement.textContent.trim() : "Unknown Author";
 
-        // استخراج تعداد صفحات
         const pagesRow = Array.from(document.querySelectorAll('tr.book-vl-rows-item'))
             .find(row => {
                 const titleCell = row.querySelector('td.book-vl-rows-item-title');
@@ -107,7 +105,6 @@
             pages = "Unknown Pages";
         }
 
-        // استخراج تصویر کتاب
         const coverElement = document.querySelector('img.book-main-box-img');
         if (coverElement) {
             const coverSrc = coverElement.getAttribute("src");
@@ -115,6 +112,45 @@
         } else {
             cover = "No Cover Image";
         }
+      } else if (url.includes("behkhaan.ir")) {
+        // behkhaan
+        const titleElement = document.querySelector('h1#title');
+        title = titleElement ? titleElement.textContent.trim() : "Unknown Title";
+
+        const authorElement = document.querySelector('div.w-full.my-2 span.text-sm.md\\:text-base.text-gray-500');
+        author = authorElement ? authorElement.textContent.trim() : "Unknown Author";
+
+        const pagesLabel = Array.from(document.querySelectorAll('span.text-xs.md\\:text-sm.text-gray-500'))
+            .find(el => el.textContent.includes("تعداد صفحات"));
+        const pagesElement = pagesLabel?.parentElement?.nextElementSibling;
+        pages = pagesElement ? pagesElement.textContent.trim() : "Unknown Pages";
+
+        const coverElement = document.querySelector('img.w-full.h-full.object-cover.rounded-lg.cursor-pointer');
+        cover = coverElement ? coverElement.getAttribute("src") : "No Cover Image";
+      } else if (url.includes("ketabrah.ir")) {
+        // ketabrah
+        const rows = Array.from(document.querySelectorAll('tr'));
+
+        const titleRow = rows.find(row => row.querySelector('td')?.textContent.trim() === "نام کتاب");
+        if (titleRow) {
+          const titleElement = titleRow.querySelector('td[itemprop="name"]');
+          title = titleElement ? titleElement.textContent.trim() : "Unknown Title";
+        }
+
+        const authorRow = rows.find(row => row.querySelector('td')?.textContent.trim() === "نویسنده");
+        if (authorRow) {
+          const authorElement = authorRow.querySelector('span[itemprop="author"]');
+          author = authorElement ? authorElement.textContent.trim() : "Unknown Author";
+        }
+
+        const pagesRow = rows.find(row => row.querySelector('td')?.textContent.trim() === "تعداد صفحات");
+        if (pagesRow) {
+          const pagesElement = pagesRow.querySelector('td:nth-child(2)');
+          pages = pagesElement ? pagesElement.textContent.trim() : "Unknown Pages";
+        }
+
+        const coverElement = document.querySelector('a.book-cover');
+        cover = coverElement ? coverElement.getAttribute("href") : "No Cover Image";
       } else {
         console.warn("Unsupported website.");
       }
@@ -131,20 +167,17 @@
     }
   };
 
-  // تابع برای ایجاد و باز کردن لینک Obsidian
-  const createObsidianLink = () => {
-    const bookInfo = getBookInfo();
-
-    // حذف کاراکترهای غیرمجاز از عنوان
+  // Function to create and open Obsidian link
+  const createObsidianLink = (bookInfo) => {
     const sanitizeTitle = (title) => {
-      return title.replace(/[\\/:*?"<>|]/g, '_'); // جایگزینی کاراکترهای نامعتبر با _
+      return title.replace(/[\\/:*?"<>|]/g, '_'); // Replace invalid characters
     };
 
-    // Get custom settings from storage
+    // Custom settings
     chrome.storage.sync.get(['vaultName', 'filePath', 'fileNameTemplate', 'template'], function(data) {
-      const vaultName = data.vaultName || 'my vault'; // Default value
-      const filePath = data.filePath || ''; // Default value (empty)
-      const fileNameTemplate = data.fileNameTemplate || '{{title}}'; // Default value
+      const vaultName = data.vaultName || '';
+      const filePath = data.filePath || '';
+      const fileNameTemplate = data.fileNameTemplate || '{{title}}';
       const template = data.template || `---
 title: {{title}}
 author: {{author}}
@@ -161,20 +194,17 @@ tags:
         .replace(/{{pages}}/g, bookInfo.pages)
         .replace(/{{cover}}/g, bookInfo.cover);
 
+      // Generate markdown content with sanitized title
       const markdownContent = template
-        .replace(/{{title}}/g, bookInfo.title)
+        .replace(/{{title}}/g, sanitizeTitle(bookInfo.title))
         .replace(/{{author}}/g, bookInfo.author)
         .replace(/{{pages}}/g, bookInfo.pages)
         .replace(/{{cover}}/g, bookInfo.cover);
 
-      // کدگذاری محتوا برای استفاده در URL
+      // Encode content for URL use
       const encodedContent = encodeURIComponent(markdownContent);
       const encodedFilePath = encodeURIComponent(filePath ? `${filePath}/${fileName}` : fileName);
-
-      // ساخت URL پروتکل Obsidian
       const obsidianUrl = `obsidian://new?vault=${vaultName}&file=${encodedFilePath}&content=${encodedContent}`;
-
-      // ایجاد لینک و کلیک خودکار برای باز کردن Obsidian
       const a = document.createElement("a");
       a.href = obsidianUrl;
       document.body.appendChild(a);
@@ -183,17 +213,61 @@ tags:
     });
   };
 
-  // اگر سایت فیدیبو بود، یکبار صفحه را رفرش کنید و سپس افزونه را اجرا کنید
-  if (window.location.hostname.includes("fidibo.com")) {
-    if (!sessionStorage.getItem("pageRefreshed")) {
-      sessionStorage.setItem("pageRefreshed", "true");
-      window.location.reload();
+  // Function to download Markdown file
+  const downloadMarkdownFile = (bookInfo) => {
+    const sanitizeTitle = (title) => {
+      return title.replace(/[\\/:*?"<>|]/g, '_');
+    };
+
+
+    chrome.storage.sync.get(['fileNameTemplate', 'template'], function(data) {
+      const fileNameTemplate = data.fileNameTemplate || '{{title}}';
+      const template = data.template || `---
+title: {{title}}
+author: {{author}}
+pages: {{pages}}
+cover: {{cover}}
+tags:
+  - Book
+---`;
+
+      let fileName = fileNameTemplate
+        .replace(/{{title}}/g, sanitizeTitle(bookInfo.title))
+        .replace(/{{author}}/g, sanitizeTitle(bookInfo.author))
+        .replace(/{{pages}}/g, bookInfo.pages)
+        .replace(/{{cover}}/g, bookInfo.cover);
+
+      if (!fileName.endsWith('.md')) {
+        fileName += '.md';
+      }
+
+      const markdownContent = template
+        .replace(/{{title}}/g, sanitizeTitle(bookInfo.title))
+        .replace(/{{author}}/g, bookInfo.author)
+        .replace(/{{pages}}/g, bookInfo.pages)
+        .replace(/{{cover}}/g, bookInfo.cover);
+
+      const blob = new Blob([markdownContent], { type: 'text/markdown' });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+  };
+
+  chrome.storage.sync.get(['saveMode'], function(data) {
+    const saveMode = data.saveMode || 'obsidian';
+    const bookInfo = getBookInfo();
+
+    if (saveMode === 'download') {
+      downloadMarkdownFile(bookInfo);
     } else {
-      sessionStorage.removeItem("pageRefreshed");
-      createObsidianLink();
+      createObsidianLink(bookInfo);
     }
-  } else {
-    // برای سایت‌های دیگر، مستقیماً لینک Obsidian را ایجاد کنید
-    createObsidianLink();
-  }
+  });
 })();
