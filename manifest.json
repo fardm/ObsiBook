@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "ObsiBook",
+  "version": "1.2.0",
+  "description": "Extract book details and create a new note in Obsidian.",
+  "permissions": ["activeTab", "scripting", "storage", "downloads"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "action": {
+    "default_title": "ObsiBook",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  }
+}
