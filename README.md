@@ -27,7 +27,7 @@
 https://github.com/user-attachments/assets/29cf032f-6488-4f3a-8e6e-c6b1369e9570
 
 1. یک پوشه به اسم Templates و یک پوشه به اسم my books ایجاد کنید.
-2. فایل add-book.md رو از [اینجا](./Templates/add-book.md) دانلود کنید و توی پوشه Templates قرار بدید.
+2. فایل add-book.md رو از [اینجا](./add-book.md) دانلود کنید و توی پوشه Templates قرار بدید.
 3. پلاگین [Templater](https://obsidian.md/plugins?id=templater-obsidian) رو نصب کنید.
 4. از بخش تنظیمات پلاگین گزینه Tigger templater on new file رو فعال کنید.
 5. روی گزینه add new folder template کلیک کنید.
