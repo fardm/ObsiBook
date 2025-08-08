@@ -16,6 +16,10 @@
 
 <br/>
 
+> ℹ️ یک اسکریپت از همین افزونه آماده کردم که نیاز به مرورگر ندارد و مسقیما در خود نرم افزار ابسیدین اجرا می شود. فایل اسکریپت و جزئیات بیشتر را در برنج [script](https://github.com/fardm/ObsiBook/tree/script) قرار دادم.
+
+<br/>
+
 ## راهنمای استفاده
 
 <a href="https://www.aparat.com/v/zbg2jw5"><img src="https://img.icons8.com/?size=100&id=61350&format=png&color=000000" width="25px" height="25px" align="center">مشاهده ویدئو در آپارات</a>
@@ -50,11 +54,12 @@
 
 <br/>
 
-## کد
-کدهای این افزونه با ChatGPT و DeepSeek نوشته شده است.
+---
 
+⚠ من این افزونه رو برای نیاز شخصی خودم با کمک هوش مصنوعی درست کردم. متغیرها و سایت‌های فعلی برای کار من کفایت میکنه. اگر شما به موارد بیشتری نیاز دارید میتونید خودتون با کمک هوش مصنوعی امکانات بیشتری بهش اضافه کنید.
 
-<br/><br/>
+<br/>
 
 ---
-اگر به مطالب مرتبط با نرم‌افزار ابسیدین علاقه دارید می توانید به [بلاگ](https://ifard.ir/) یا کانال [تلگرامم](https://t.me/ifard_ir/) مراجعه کنید.
+
+اگر به مطالب مرتبط با نرم‌افزار ابسیدین علاقه دارید می توانید به <img src="https://www.google.com/s2/favicons?sz=32&domain=ifard.ir" width="18px" height="18px" align="center"> [بلاگ](https://ifard.ir/) یا کانال <img src="https://www.google.com/s2/favicons?sz=32&domain=telegram.org" width="18px" height="18px" align="center"> [تلگرامم](https://t.me/ifard_ir/) مراجعه کنید. 
